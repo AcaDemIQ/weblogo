@@ -67,7 +67,13 @@ def test_stacks_per_line():
 def test_title():
     _exec(['-t', '3456'], ['/logo_title         (3456) def', '/show_title         True def'])
     _exec(['-t', ''], ['/logo_title         () def', '/show_title         False def'])
-    _exec(['--title', '3456'], ['/logo_title         (3456) def', '/show_title         True def'])
+    _exec(['--title', 'title with spaces'], ['/logo_title         (title with spaces) def',
+                                             '/show_title         True def'])
+
+
+def test_fineprint():
+    _exec(['--fineprint', 'this is fineprint'], ['/show_fineprint         True def',
+                                                 '/fineprint              (this is fineprint) def'])
 
 
 def test_annotate():
